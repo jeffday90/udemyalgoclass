@@ -100,7 +100,7 @@ const selectionSort = (arr) => {
 
 
 const swap = (arr1, indx1, indx2) => {
-  [arr1[indx1], arr1[indx2]] = [arr2[indx2], arr2[indx1]];
+  [arr1[indx1], arr1[indx2]] = [arr1[indx2], arr1[indx1]];
 }
 
 // store the first element as the smallest value
