@@ -97,7 +97,52 @@ const selectionSort = (arr) => {
   return arr;
 }
 
+// space and time complexity issues, but the general algo is there
+const insertionSort = (arr) => {
+  let sortedArr = [];
+  sortedArr.push(arr[0]);
 
+  for (let i = 1; i < arr.length; i++) {
+    sortedArr.push(arr[i]);
+    for (let j = 0; j < sortedArr.length; j++) {
+      if (sortedArr[j] > sortedArr[j+1]) {
+        swap(sortedArr, j, j+1);
+      }
+    } 
+  }
+  return sortedArr;
+}
+
+const mergeES6 = (arr1, arr2) => {
+  let result = [...arr1, ...arr2];
+  result.sort((a, b) => a - b);
+}
+
+const merge = (arr1, arr2) => {
+  let results = [];
+  let i = 0; 
+  let j = 0;
+
+  while (i < arr1.length && j < arr2.length) {
+    if (arr2[j] > arr1[i]) {
+      results.push(arr1[i]);
+      i++
+    } else {
+      results.push(arr2[j]);
+      j++;
+    }
+  }
+  while (i < arr1.length) {
+    results.push(arr1[i]);
+    i++;
+  }
+
+  while (j < arr2.length) {
+    results.push(arr2[j]);
+    j++;
+  }
+  return arr;
+}
 
 const swap = (arr1, indx1, indx2) => {
   [arr1[indx1], arr1[indx2]] = [arr1[indx2], arr1[indx1]];
