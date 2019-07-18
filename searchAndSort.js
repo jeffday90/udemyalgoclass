@@ -77,6 +77,32 @@ const bubbleSort = (arr) => {
   return arr;
 }
 
+const selectionSort = (arr) => {
+  const sort = (arr, min, i, start) => {
+    let newLow = i + 1;
+    for (i; i < arr.length; i++) {
+      if (arr[min] > arr[i + 1]) {
+        min = i + 1;
+      } 
+      if (i === arr.length - 1) {
+        swap(arr, min, start);
+        sort(arr, newLow, newLow, newLow);
+      }
+    }
+  }
+  sort(arr, 0, 0, 0);
+  return arr;
+
+}
+
+
+
 const swap = (arr1, indx1, indx2) => {
   [arr1[indx1], arr1[indx2]] = [arr2[indx2], arr2[indx1]];
 }
+
+// store the first element as the smallest value
+// compare this item to the next item until you find a smaller item
+// if smaller number is found, designate smaller number to be new 'min' and continue til the end of array
+// if minimum is not the value you began with, swap the two values
+// repeat this with the next item 
