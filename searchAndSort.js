@@ -78,21 +78,23 @@ const bubbleSort = (arr) => {
 }
 
 const selectionSort = (arr) => {
-  const sort = (arr, min, i, start) => {
-    let newLow = i + 1;
+  const sort = (arr, input) => {
+    min = input;
+    start = input;
+    i = input;
+    input += 1;
     for (i; i < arr.length; i++) {
       if (arr[min] > arr[i + 1]) {
         min = i + 1;
       } 
       if (i === arr.length - 1) {
         swap(arr, min, start);
-        sort(arr, newLow, newLow, newLow);
+        sort(arr, input);
       }
     }
   }
-  sort(arr, 0, 0, 0);
+  sort(arr, 0);
   return arr;
-
 }
 
 
