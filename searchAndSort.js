@@ -163,3 +163,71 @@ const swap = (arr1, indx1, indx2) => {
 // if smaller number is found, designate smaller number to be new 'min' and continue til the end of array
 // if minimum is not the value you began with, swap the two values
 // repeat this with the next item 
+
+var LinkedList = function() {
+  var list = {};
+  list.head = null;
+  list.tail = null;
+
+  list.addToTail = function(value) {
+      var newTail = new Node(value);
+      
+      //if there is a head
+      if (!this.head){
+          list.head = newTail
+      }
+      
+      //if there is a tail
+      if (list.tail){
+          list.tail.next = newTail;
+      }
+      
+      list.tail = newTail;
+  };
+
+  list.removeHead = function() {
+      //if there is no head
+      if (list.head === null){
+          return null;
+      }
+      
+      //if there is a head
+      var oldHead = list.head;
+      list.head = oldHead.next;
+      
+      return oldHead.value;
+      
+  };
+
+  list.contains = function(target) {
+    var node = list.head;
+      
+    //if the node exists... loops through the entire list
+    while (node !== null){
+      //if value equals the target
+      if (node.value === target){
+        return true;
+      //if the value doesn't equal to target, set the value
+          //to equal the next node
+    } else {
+      node = node.next;
+      }
+    }
+    return false;  
+    
+  };
+  return list;
+};
+
+var Node = function(value) {
+  var node = {};
+
+  node.value = value;
+  node.next = null;
+
+  return node;
+};
+
+/*
+ * Complexity: What is the time complexity of the above functions?
+ */
