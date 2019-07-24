@@ -69,8 +69,6 @@ class SinglyLinkedList{
         }
         length++;
         return this;
-        
-
     }
 }
 
